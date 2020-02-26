@@ -1,0 +1,182 @@
+.modal_mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  background: black;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+}
+
+.modal_content {
+  position: fixed;
+  top: 60%;
+  left: 0%;
+  z-index: 3;
+  border-radius: 20rpx;
+  padding: 40rpx 150rpx;
+  background-color: #fff;
+  text-align: center;
+}
+
+.modal-conttext {
+  line-height: 90rpx;
+  display: block;
+}
+
+.success {
+  color: #09bb07;
+}
+
+.modal-titleTxt {
+  font-size: 50rpx;
+  font-weight: 700;
+}
+
+.warn {
+  color: #f76260;
+}
+
+.window{
+  position: absolute;
+  left: 45rpx;
+  top:212rpx;
+  z-index: 2;
+  height: 910rpx;
+  width: 600rpx;
+  background:white;
+  opacity: 1;
+  filter: alpha(opacity=40);
+  border-radius: 20rpx;
+  padding-left: 60rpx;
+}
+
+.title{
+  position: absolute;
+  top: 30rpx;
+  left:245rpx;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  line-height: 34rpx;
+}
+
+.content{
+  position: absolute;
+  top:90rpx;
+}
+.input{
+  
+  border-bottom: 1rpx #000 dashed; 
+  font-size: 30rpx;  
+  white-space:pre-wrap;
+}
+.cancel{
+  position: absolute;
+  left:600rpx;
+  top:20rpx;
+}
+
+.line{
+  display: flex;
+  flex-direction:row;
+  align-items: start;
+}
+
+.confirm_deal{
+  display: flux;
+  position:absolute;
+  top:650rpx;
+  left: 0rpx;
+  height: 221rpx;
+  width: 600rpx;
+  z-index: 100rpx;
+  background-color: rgba(83,181,69,1);
+}
+
+.confirm_deal_01{
+  position: absolute;
+  top:640rpx;
+  left:0rpx;
+  padding-left: 60rpx;
+
+}
+
+
+.text_title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50rpx;
+  font-family: PingFang SC;
+}
+.text_subtitle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  font-family: PingFang SC;
+  
+}
+
+.iner_window{
+  position: absolute;
+  left: 20rpx;
+}
+
+.btn_pay{
+  position: absolute;
+  top:820rpx;
+  left:198rpx;
+}
+.dotline{
+  color:rgb(red, rgb(0, 197, 0), blue)
+
+}
+.line_title{
+  font-size:35rpx;
+  line-height:60rpx;
+  white-space:pre-wrap;
+}
+
+.getAdd{
+  position: relative;
+  top:25rpx;
+  align-items: center;
+  text-align: center;
+  color: green;
+  font-size: 30rpx;
+}
+.picker{
+  display: flex;
+  flex-direction:row;
+  align-items: start;
+}
+.picker_text{
+  font-size:32rpx;
+  line-height:60rpx;
+  white-space:pre-wrap;
+  border-bottom: 1rpx #000 dashed; 
+  
+
+}
+.btn_minus{
+  height:50rpx;
+  width:50rpx;
+  position: absolute;
+  top:60rpx;
+  left:160rpx;
+  opacity: 0;
+}
+
+.btn_plus{
+  height:50rpx;
+  width:70rpx;
+  position: absolute;
+  top:60rpx;
+  left:270rpx;
+  opacity: 0;
+}

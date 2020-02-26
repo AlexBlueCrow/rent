@@ -1,0 +1,98 @@
+<view wx:if="{{showCerti}}"> 
+  <view class='modal_mask' bindtap="closewindow"></view>
+  
+  <swiper class='swiper_container'style="background-image: url('/images/icon/blank.png');" wx:if="{{orderInfo}}">
+    
+    <block wx:for="{{orderInfo}}">
+    <swiper-item>
+      <image src="https://qingjiao.shop:8000/static/pic/{{item.imageUrl}}" class="item_icon"></image>
+      <view class='window' style="opacity:1;">
+      <view class='pos' style="opacity:1;">
+        
+        <view class="cancel">
+          <image src="/images/icon/close_31.png" style="height:30rpx;width:30rpx;" bindtap="closewindow"></image>
+        </view>
+        
+        <view class="content"> 
+          <view>
+            <text class="content_01">认领编号: </text>
+            <text class="content_02">{{item.tree_ip}}</text>
+          </view>
+          <view>
+            <text class="content_01">认领昵称:  </text>
+            <text class="content_02">{{item.buyernickname}}</text>
+          </view>
+          <view>
+            <text class="content_01">挂牌签名:  </text>
+            <text class="content_02">{{item.postsign}}</text>
+          </view>
+          <view>
+            <text class="content_01">它的回信: </text>
+            <text class="content_02">{{item.message_from_farm}} </text>
+          </view>
+          <view>
+            <text class="content_01">购买记录:</text>
+            <view>
+              <text class="content_02">您于{{item.effect_time}},在{{item.farm_name}}认领了{{item.quantity}}棵{{item.item_name}}</text>
+            </view>
+          </view>
+          
+          <view>
+            <text class="content_01" >累计送达: {{item.delivered}}公斤</text>
+          </view>
+        </view>
+      </view>
+      </view> 
+    </swiper-item>
+    
+    </block>
+    
+  </swiper>
+
+  <view wx:if="{{!orderInfo}}" class='emptyPage'>
+    <image src="/images/icon/logo.png" class="item_icon"></image>
+      <view class='window' style="opacity:1;">
+      <view class='pos' style="opacity:1;">
+        
+        <view class="cancel">
+          <image src="/images/icon/close_31.png" style="height:30rpx;width:30rpx;" bindtap="closewindow"></image>
+        </view>
+        
+        <view class="content"> 
+          <view>
+            <text class="content_01">认领编号: </text>
+            <text class="content_02">{{item.tree_ip}}</text>
+          </view>
+          <view>
+            <text class="content_01">认领昵称:  </text>
+            <text class="content_02">{{item.buyernickname}}</text>
+          </view>
+          <view>
+            <text class="content_01">挂牌签名:  </text>
+            <text class="content_02">{{item.postsign}}</text>
+          </view>
+          <view>
+            <text class="content_01">它的回信:  </text>
+            <view>
+              <text class="content_02">{{}}</text>
+            </view>
+          </view>
+          <view>
+            <text class="content_01">购买记录:</text>
+          </view>
+          <view wx:if='{{num}}'>
+            <text class="content_02" >您于{{time}}在{{farm_name}}认领了{{num}}{{m_word}}{{item_name}}</text>
+          </view>
+          <view>
+            <text class="content_01" >累计送达: {{delivered}}{{}}{{}}</text>
+          </view>
+           <view class="btn_pay">
+          <button size="mini" style="color:white;background-color:rgb(0, 190, 0);height:64rpx;width:264rpx;opacity:1;" form-type="submit" bindtap='goto_buy'>前往认领</button>
+        </view>
+          
+        </view>
+      </view>
+      </view>
+       
+  </view>
+</view>

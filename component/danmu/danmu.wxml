@@ -1,0 +1,9 @@
+<template name="danmu">
+  <view class="danmu-container">
+
+    <block wx:for="{{ danmulist }}" wx:key="text">
+      <view class="danmu-item {{ 'row' + (index%5 + 1) }} {{ movings[index] ? 'moving' : '' }}">{{ item.text }}</view>
+    </block>
+
+  </view>
+</template>

@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "comment":"../../component/modal/comment/comment",
+    "getTree":"../../component/modal/getTree/getTree",
+    "certificate":"../../component/modal/certificate/certificate",
+    "share":"../../component/modal/share/share"
+    
+  },
+  "disableScroll": true
+}

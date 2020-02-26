@@ -1,0 +1,9 @@
+<!--component/modal/comments/comment.wxml-->
+<view wx:if="{{showComment}}">
+  <view class='modal_mask' bindtap='mask_click'></view>
+  <form class='input_comment' bindsubmit="sendComment">
+
+    <input name='input_comment' class="weui-input" placeholder="输入评论" maxlength="100" focus="true" confirm-type="send" bindconfirm="sendComment" bindtap="catchtap" cursor-spacing="10rpx" value="{{inputValue}}"  confirm-hold="True"/>
+  </form>
+</view>
+

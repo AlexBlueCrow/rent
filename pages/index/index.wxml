@@ -1,0 +1,165 @@
+
+<view class="page">
+  <view class="danmuAni">
+  <block wx:for="{{doommData}}" wx:key="id">
+    <text class="aon" style="animation:first {{item.time}}s linear forwards; top:{{item.top}}%; color:{{item.color}}">{{item.text}}</text>
+  </block>
+  </view>
+  <video id="item_video" class="video"  src="{{video_url}}" autoplay="True" controls='{{false}}' loop="false"  bindtouchstart="video_touchStart" bindtouchmove="video_touchMove" bindtouchend="video_touchEnd" controls="false" bindtap="video_tap" >
+  </video>
+
+  <view class="rights_con">
+    <text class="rights_title"> 认领{{itemInfo.item_name}},你将获得以下权益:</text>
+    <text class="rights_text" style="font-size:28rpx">{{itemInfo.item_benefit}}</text>
+    <text class="distance_text">{{farmInfo.farm_name}}距离您仅{{itemInfo.dis}}千米</text>
+  </view>
+  <view class="question">
+    <view class='question_01'>
+      <text> 答题优惠: {{total_reward}}元</text>
+    </view>
+    <view class='question_text'>
+    <text>{{current_question+1}}.{{question_text}}</text>
+    </view>
+    <view>  
+    <button bindtap="checkanswer" data-answer="A" class="btn_answer" hover-class="btn_answer_clicked"  style="background-color:{{anw_color.A}}">A:{{option_A}}</button>
+    <button bindtap="checkanswer" data-answer="B" class="btn_answer" hover-class="btn_answer_clicked"  style="background-color:{{anw_color.B}}">B:{{option_B}}</button>
+    <button bindtap="checkanswer" data-answer="C" class="btn_answer" hover-class="btn_answer_clicked"  style="background-color:{{anw_color.C}}">C:{{option_C}}</button>
+    <button bindtap="checkanswer" data-answer="D" class="btn_answer" hover-class="btn_answer_clicked"  style="background-color:{{anw_color.D}}">D:{{option_D}} </button>
+    </view>
+  </view>
+  <view class="getTree" bindtap="showGetTree"> 
+    <image src="{{pic_url}}" class='getTree_btn' ></image>
+    <text class="getTree_text">点我认领</text>
+  </view>   
+  <view class="buttons">
+    <image src="/images/icon/share_60x90.png" style="width:60rpx;height:90rpx;background:rgba(0,0,0,1);border-radius:10rpx;opacity:0.7;margin-top:10rpx" bindtap="showShare"></image>
+    <image src= "/images/icon/comment_60x90.png" style="width:60rpx;height:90rpx;background:rgba(0,0,0,1);border-radius:10rpx;opacity:0.7;margin-top:10rpx" bindtap="showComment"></image>
+    <image src="/images/icon/certification_60x90.png" style="width:60rpx;height:90rpx;background:rgba(0,0,0,1);border-radius:10rpx;opacity:0.7;margin-top:10rpx" bindtap="showCerti"></image>
+    <image src="/images/icon/cus_service_90x135.png" style="width:60rpx;height:90rpx;background:rgba(0,0,0,1);border-radius:10rpx;opacity:0.7;margin-top:10rpx" open-type='contact'></image>
+    <button open-type='contact' class='cus_btn'></button>
+  </view>
+  <!-- modals -->
+  <comment show-comment="{{showComment}}" item-id="{{itemInfo.id}}" bind:newDanmu="newDanmu">
+  </comment>
+  <getTree show-gettree="{{showGetTree}}" item-info="{{itemInfo}}" reward="{{total_reward}}" address="{{address}}" phone-num="{{phoneNum}}" user-name="{{userName}}" bind:getAddress='getAddress' bind:paySuc='paySuc' >
+  </getTree>
+  <certificate show-certi="{{showCerti}}" order-info="{{orderInfo}}" bind:redirect='redtoGettree'> 
+  </certificate>
+  <share show-share="{{showShare}}" item-info="{{itemInfo}}" pic-url="{{pic_url}}" farm-info="{{farmInfo}}"> 
+  </share>
+  <!-- modals -->
+  <view wx:if='{{showReward}}'>
+    <view class='modal_mask' bindtap="closewindow_reward"></view>
+    <view class='winReward'>
+      <view class="title">
+        <text class="text_title">答题完成</text>
+      </view>
+      <view class="cancel">
+        <image src="/images/icon/close_31.png" style="height:30rpx;width:30rpx;" bindtap="closewindow_reward"></image>
+      </view> 
+      <view class='icon_complete'>
+        <image src="/images/icon/complete_90.png" class="item_icon"></image>
+      </view>
+      <view class='reward_text'>
+        <view>
+          <text class='text_line' style="font-size:15px">恭喜你，答题完成</text>
+        </view>
+          
+        <view>
+          <text class='text_line' style="font-size:20px">答对{{num_correct}}道题，减免 {{total_reward}}元</text>
+        </view>
+        <view>
+          <text class='text_line' style="font-size:15px">你能把我认领回家吗？</text>
+        </view>
+        </view>
+      <view class="btn_reward">
+        <button size="mini" style="color:white;background-color:rgb(0, 0, 0);height:64rpx;width:220rpx;opacity:1;" form-type="submit" bindtap='reDo'>重新答题</button>
+        <button size="mini" style="color:white;background-color:rgb(255,0, 0);height:64rpx;width:220rpx;opacity:1;margin-left:65rpx;" form-type="submit" bindtap='goToshowGetTree' >立即认领</button>
+      </view>
+    </view>
+  </view>
+  <view > 
+    <button class = 'btn_gift' bindtap="showGift">认领码</button>
+  </view>
+
+  <view wx:if = '{{showGift}}'>
+    <view class='modal_mask' bindtap="closewindow_gift" ></view>
+    <view class='win_gift'>
+      <form bindsubmit='send_giftcode'>      
+        <input class="input_code"  name="giftcode" placeholder="请输入你的认领码"></input>
+        <view wx:if='{{wrongcode}}' class='warning'>
+          <text class='warning_text'>请输入正确的兑换码</text>
+        </view>
+        <view class="btn_submit">
+          <button size="mini" style="color:white;background-color:rgb(0, 190, 0);height:52rpx;width:140rpx;opacity:1; border-radius: 0rpx" form-type="submit">领取</button>
+        </view>
+      </form>
+    </view>
+  </view>
+  <view wx:if = '{{showGetGift}}'>
+    <view class='modal_mask' bindtap="closewindow_getgift" ></view>    
+    <view class ='win_getgift'>
+      <form bindsubmit="getgift">
+        <view class="content">
+          <view>
+            <text class='line_title'>认领名称：{{giftcode.item_name}}</text>
+          </view>          
+          <view class="line">
+            <text class='line_title' style="color:{{color_nick}}">认领昵称: </text>
+            <input class="input"  name="nickname"></input>
+          </view>
+          <view class="line">
+            <text class='line_title' style="color:{{color_sign}}">认领寄语: </text>
+            <input class="input"  name="post_sign" ></input>
+          </view>
+          <view class="line">
+            <text class='line_title' style="color:{{color_rec}}">收件姓名: </text>
+            <input class="input"  name="name_rec" value="{{userName}}"></input>
+          </view>
+          <view class="line">
+            <text class='line_title' style="color:{{color_phone}}">手机号码: </text>
+            <input class="input"  name="phone_num" value="{{phoneNum}}"></input>
+          </view>
+          <view class="line">
+            <picker class="picker" mode="region" bindchange="bindRegionChange" value="{{addRegion}}" custom-item="{{customItem}}">
+            <text class='line_title' style="color:{{color_address}}">所在地区: </text>
+            <text class="picker_text" >{{addRegion[0]}}{{addRegion[1]}}{{addRegion[2]}}        </text>
+            </picker>
+          </view>  
+          <view class="line">
+            <text class='line_title' style="color:{{color_addDetail}}">详细地址: </text> 
+            <input class="input"  name="addDetail" value="{{addDetail}}"></input>
+          </view>        
+          <view class='getAdd' bindtap = 'getAddress'>
+            <text >一键获取微信地址</text>
+          </view>  
+        </view>       
+        <view calss="confirm_deal">
+          <view class="btn_pay">
+            <button size="mini" style="color:white;background-color:rgb(0, 190, 0);height:64rpx;width:264rpx;opacity:1;" form-type="submit">立即兑换</button>
+          </view> 
+        </view>
+      </form>
+    </view>
+  </view>
+  <view wx:if ='{{showGiftSuc}}'>
+    <view class='modal_mask' bindtap="closewindow_giftsuc" ></view>    
+    <view class ='win_getgiftSuc'>
+      <view>
+        <text style="text-align: center;">领取成功</text>
+      </view>
+      <view>
+        <text>你领取{{giftinfo.giver}}送给你的价值{{giftinfo.item_price}}元的{{giftinfo.item_name}}{{}}1颗</text>
+      </view>
+      <view class="btn_goto">
+        <button size="mini" style="color:white;background-color:rgb(0, 190, 0);height:52rpx;width:180rpx;opacity:1; border-radius: 10rpx" bindtap='gotoCerti'>查看证书</button>
+      </view>
+    </view>
+
+  </view>
+
+
+  
+</view>
+
+

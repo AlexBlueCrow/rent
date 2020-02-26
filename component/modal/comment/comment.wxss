@@ -1,0 +1,95 @@
+.modal_mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  background: black;
+  opacity: 0;
+  filter: alpha(opacity=40);
+}
+
+.modal_content {
+  position: fixed;
+  top: 1270rpx;
+  left: 0rpx;
+  z-index: 999;
+  border-radius: 10rpx;
+  background-color: #fff;
+  text-align: center;
+  height: 100rpx;
+  width: 750rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;  
+}
+
+.modal-conttext {
+  line-height: 90rpx;
+  display: block;
+}
+
+.success {
+  color: #09bb07;
+}
+
+.modal-titleTxt {
+  font-size: 50rpx;
+  font-weight: 700;
+}
+
+.warn {
+  color: #f76260;
+}
+
+.btn_send{
+  top:10rpx;
+  left:700rpx;
+  text-align: center;
+  align-items: center;
+}
+
+.input_comment {
+
+  position: relative;
+  top: 1250rpx;
+  left: 0rpx;
+  background-color: #fff;
+  text-align: center;
+  height: 80rpx;
+  width: 750rpx;
+  display: flex;
+  justify-content: center; 
+  flex-direction:column;
+  align-items: flex-start;
+  
+  
+}
+
+.weui-input{
+top:4rpx;
+height:50rpx;
+min-height:1.41176471em;
+line-height:1.41176471;
+width: 750rpx;
+background-color:#fff;
+border-radius: 10rpx;
+z-index: 10;
+}
+
+.sendbtn{
+  position: absolute;
+  right: 5rpx;
+  top:0rpx;
+  height:70rpx;
+  line-height: 70rpx;
+  width: 120rpx;
+  z-index: 20;
+  text-align: '';
+  color: green;
+  margin-left: 0rpx;
+  padding-left: 0rpx;
+
+}

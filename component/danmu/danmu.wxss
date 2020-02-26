@@ -1,0 +1,45 @@
+.danmu-container {
+  position: absolute;
+  z-index: 1000;
+  top: 10rpx;
+}
+
+.danmu-item {
+  color: white;
+  left: -400rpx;
+  position: absolute;
+  animation-fill-mode: forwards;
+}
+
+.moving {
+  animation: move 4s linear;
+}
+
+
+
+miving
+
+.row1 {
+  top: 20rpx;
+}
+
+.row2 {
+  top: 50rpx;
+}
+
+.row3 {
+  top: 80rpx;
+}
+.row4 {
+  top:100rpx;
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(1150rpx);
+  }
+
+  100% {
+    transform: translateX(-100rpx);
+  }
+}/* component/danmu/danmu.wxss */

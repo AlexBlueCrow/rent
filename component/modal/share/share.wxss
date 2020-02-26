@@ -1,0 +1,183 @@
+.modal_mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  background: black;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+}
+
+.modal_content {
+  position: fixed;
+  top: 60%;
+  left: 0%;
+  z-index: 3;
+  border-radius: 20rpx;
+  padding: 40rpx 150rpx;
+  background-color: #fff;
+  text-align: center;
+}
+
+.modal-conttext {
+  line-height: 90rpx;
+  display: block;
+}
+
+.success {
+  color: #09bb07;
+}
+
+.modal-titleTxt {
+  font-size: 50rpx;
+  font-weight: 700;
+}
+
+.warn {
+  color: #f76260;
+}
+
+.window{
+  position: absolute;
+  left: 76rpx;
+  top:212rpx;
+  z-index: 2;
+  height: 1000rpx;
+  width: 600rpx;
+  background:white;
+  opacity: 0.9;
+  filter: alpha(opacity=40);
+  
+  padding-left: 20rpx;
+}
+
+.title{
+  position: absolute;
+  top: 30rpx;
+  left:245rpx;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  line-height: 34rpx;
+}
+
+.content{
+  position: absolute;
+  top:115rpx;
+}
+.input{
+  
+}
+.cancel{
+  position: absolute;
+  left:550rpx;
+  top:20rpx;
+  width:30rpx;
+  height:30rpx;
+}
+
+.line{
+  display: flex;
+  flex-direction:row;
+}
+
+.confirm_deal{
+  position:relative;
+  top:700rpx;
+  left: 0rpx;
+  height: 221rpx;
+  width: 600rpx;
+  z-index: 100rpx;
+  background-color: rgba(83,181,69,1);
+}
+
+.confirm_deal_01{
+  position: absolute;
+  top:746rpx;
+}
+
+
+.text_center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iner_window{
+  position: absolute;
+  left: 20rpx;
+}
+
+
+
+
+.shareimage{
+  position: absolute;
+  left: 00rpx;
+  top:0rpx;
+  width:620rpx;
+  height:600rpx;
+}
+
+.btn_share{
+  width:264rpx;
+  height:64rpx;
+  color:white;
+  background-color: green;
+  position: absolute;
+  top:900rpx;
+  left:200rpx;
+  text-align: top;
+  align-items: center;
+  align-self: center;
+
+}
+
+
+
+.share_03{
+  align-items: center;
+  text-align: center;
+}
+
+.twoDcode{
+  position: relative;
+  top:0rpx;
+  left:-10rpx;
+  height:250rpx;
+  width:250rpx;
+}
+
+.bottom{
+  position: absolute;
+  top:650rpx;
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.bottom_left{
+  width:360rpx;
+  height:400rpx;
+  font-size: 30rpx;
+  
+}
+
+.btn_pay{
+  position: absolute;
+  top:1015rpx;
+  left:00rpx;
+  display: flex;
+  flex-direction: row;
+  justify-items: ;
+  justify-content: space-between;
+}
+.cancel{
+  position: absolute;
+  left:580rpx;
+  top:20rpx;
+  z-index: 10;
+}

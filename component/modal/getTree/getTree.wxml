@@ -1,0 +1,69 @@
+
+<view wx:if="{{showGettree}}">
+  <view class='modal_mask' bindtap='closewindow'></view>
+  <view class="window">
+    <view class="title">
+      <text class="text_title">认领商品</text>
+    </view>
+    <view class="cancel">
+      <image src="/images/icon/close_31.png" style="height:30rpx;width:30rpx;" bindtap="closewindow"></image>
+    </view>
+
+    <form bindsubmit="getTree_pay">
+      <view class="content">
+        <view>
+          <text class='line_title'>认领名称：{{itemInfo.item_name}}</text>
+        </view>
+        <view>
+          <text class='line_title'>认领数量：</text>
+          <image src="/images/icon/minus_42.png" style="height:36rpx;width:36rpx" />
+          <button class='btn_minus' bindtap="minus1"></button>
+          <text class='line_title'>   {{num}}   </text>
+          <image src="/images/icon/plus_42.png" style="height:36rpx;width:36rpx" />
+          <button class='btn_plus' bindtap="plus1"></button>
+        </view>
+        
+        <view class="line">
+          <text class='line_title' style="color:{{color_nick}}">认领昵称: </text>
+          <input class="input"  name="nickname"></input>
+        </view>
+        <view class="line">
+          <text class='line_title' style="color:{{color_sign}}">认领寄语: </text>
+          <input class="input"  name="post_sign" ></input>
+        </view>
+        <view class="line">
+          <text class='line_title' style="color:{{color_rec}}">收件姓名: </text>
+          <input class="input"  name="name_rec" value="{{userName}}"></input>
+        </view>
+        <view class="line">
+          <text class='line_title' style="color:{{color_phone}}">手机号码: </text>
+          <input class="input"  name="phone_num" value="{{phoneNum}}"></input>
+        </view>
+        <view class="line">
+          <picker class="picker" mode="region" bindchange="bindRegionChange" value="{{addRegion}}" custom-item="{{customItem}}">
+          <text class='line_title' style="color:{{color_address}}">所在地区: </text>
+          <text class="picker_text" >{{addRegion[0]}}{{addRegion[1]}}{{addRegion[2]}}        </text>
+          </picker>
+        </view>
+
+        <view class="line">
+          <text class='line_title' style="color:{{color_addDetail}}">详细地址: </text> 
+          <input class="input"  name="addDetail" value="{{addDetail}}"></input>
+        </view>
+        <view class='getAdd' bindtap = 'getAddress'>
+          <text >一键获取微信地址</text>
+        </view>
+      </view>
+      <view class="confirm_deal_01">
+          <view style="white-space:pre-wrap;" class='line_title'>认领总价:{{itemInfo.item_price}} x {{num}} ={{itemInfo.item_price*num}}元 </view>
+          <view class='line_title' style="white-space:pre-wrap;">答题优惠: {{reward}} 元</view>
+          <view class='line_title' style="white-space:pre-wrap;">实付金额: {{itemInfo.item_price*num-reward}}</view>
+      </view>    
+      <view calss="confirm_deal">
+        <view class="btn_pay">
+          <button size="mini" style="color:white;background-color:rgb(0, 190, 0);height:64rpx;width:264rpx;opacity:1;" form-type="submit">立即支付</button>
+        </view>
+      </view>
+    </form>
+  </view>
+</view>

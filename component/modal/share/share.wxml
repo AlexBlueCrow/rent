@@ -1,0 +1,35 @@
+<!--component/modal/share/share.wxml-->
+<text>component/modal/share/share.wxml</text>
+
+<view wx:if="{{showShare}}">
+  <view class='modal_mask' bindtap='closewindow'></view>
+  <view class='window'>
+    
+    <image src="/images/icon/close_31.png" bindtap="closewindow" class='cancel'></image>
+    <view>
+      <image src="{{picUrl}}" class='shareimage'></image>
+    </view>
+    <view class="bottom">
+      <view class="bottom_left">
+        <text style="font-size:35rpx">{{farmInfo.farm_name}}</text>
+        <view>
+           <text>位于{{farmInfo.farm_address}}</text>
+        </view>
+        
+        <view>
+          <text>我在这里认领了一棵{{itemInfo.item_name}}</text>
+        </view>
+      </view>
+      <view>
+        <image src='/images/icon/XCX_QRcode.jpg' class='twoDcode' ></image><!--二维码-->
+      </view>
+    </view>
+      
+    <view class="btn_pay">
+          <!-- <button size="mini" style="color:white;background-color:rgb(0, 0, 0);height:70rpx;width:270rpx;opacity:1;font-size:32rpx;" form-type="submit" bindtap='' >保存分享海报</button> -->
+          <button size="mini" style="color:white;background-color:rgb(255,0, 0);height:70rpx;width:270rpx;opacity:1;margin-left:160rpx;font-size:32rpx;" form-type="submit"  open-type="share">分享小程序</button>
+        </view>
+        
+  </view>
+</view>
+
